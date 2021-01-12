@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModbusTool", "DWTool\ModbusTool.csproj", "{8BD532A4-A137-414A-B3F5-18D5475C0999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModbusTool", "ModbusTool\ModbusTool.csproj", "{8BD532A4-A137-414A-B3F5-18D5475C0999}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtocolModbus", "ProtocolModbus\ProtocolModbus.csproj", "{925965E6-B536-44F8-BCB2-79038A28DBCA}"
 EndProject
