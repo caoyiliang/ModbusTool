@@ -1,0 +1,26 @@
+{
+  "$id": "1",
+  "Protocols": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Name": "Test1",
+        "RegisterAddress": 257,
+        "ValueType": 0
+      },
+      {
+        "$id": "4",
+        "Name": "Test2",
+        "RegisterAddress": 258,
+        "ValueType": 1
+      },
+      {
+        "$id": "5",
+        "Name": "Test3",
+        "RegisterAddress": 259,
+        "ValueType": 2
+      }
+    ]
+  }
+}

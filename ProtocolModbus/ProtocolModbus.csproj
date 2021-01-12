@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonDatatypes" Version="1.1.11" />
+    <PackageReference Include="CSoft.TopPortLib" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProtocolsInterface\ProtocolsInterface.csproj" />
+  </ItemGroup>
+
+</Project>
