@@ -1,4 +1,4 @@
-using LoggerWindows;
+using LoggerNLog;
 using LogInterface;
 using System;
 using System.Collections.Generic;
