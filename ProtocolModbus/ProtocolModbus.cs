@@ -1,5 +1,4 @@
-﻿using CommonDatatypes;
-using Parser;
+﻿using Parser;
 using ProtocolsInterface;
 using System;
 using System.Collections.Generic;

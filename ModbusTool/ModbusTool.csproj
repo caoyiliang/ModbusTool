@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSoft.DataPairs" Version="1.0.2" />
-    <PackageReference Include="CSoft.LoggerNLog" Version="5.0.0" />
-    <PackageReference Include="CSoft.TopPortLib" Version="5.0.4" />
-    <PackageReference Include="NLog.Config" Version="4.7.6" />
+    <PackageReference Include="CSoft.DataPairs" Version="1.0.3" />
+    <PackageReference Include="CSoft.LoggerNLog" Version="5.0.2" />
+    <PackageReference Include="CSoft.TopPortLib" Version="5.0.5" />
+    <PackageReference Include="NLog.Config" Version="4.7.7" />
     <PackageReference Include="NPOI" Version="2.5.2" />
   </ItemGroup>
 
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ProtocolConfig.json">
+    <None Update="Config\ProtocolConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonDatatypes" Version="1.1.11" />
-    <PackageReference Include="CSoft.TopPortLib" Version="5.0.4" />
+    <PackageReference Include="CSoft.TopPortLib" Version="5.0.5" />
   </ItemGroup>
 
   <ItemGroup>
