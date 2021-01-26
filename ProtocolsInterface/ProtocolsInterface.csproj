@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="CSoft.DataPairs" Version="1.0.3" />
-    <PackageReference Include="CSoft.TopPortLib" Version="5.0.5" />
+    <PackageReference Include="CSoft.TopPortLib" Version="5.0.7" />
   </ItemGroup>
 
 </Project>
