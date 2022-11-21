@@ -7,19 +7,22 @@
         "$id": "3",
         "Name": "Test1",
         "RegisterAddress": 257,
-        "ValueType": 0
+        "ValueType": 0,
+        "Group": "1"
       },
       {
         "$id": "4",
         "Name": "Test2",
         "RegisterAddress": 258,
-        "ValueType": 1
+        "ValueType": 1,
+        "Group": "1"
       },
       {
         "$id": "5",
         "Name": "Test3",
         "RegisterAddress": 259,
-        "ValueType": 2
+        "ValueType": 2,
+        "Group": "2"
       }
     ]
   }

@@ -12,7 +12,7 @@ namespace ModbusTool.Protocol
 {
     public class ProtocolConfig
     {
-        private static readonly IDataPair<ProtocolConfig> pair = new DataPair<ProtocolConfig>("ProtocolConfig", AppDomain.CurrentDomain.BaseDirectory, false);
+        private static readonly IDataPair<ProtocolConfig> pair = new DataPair<ProtocolConfig>("ProtocolConfig",StorageType.File);
 
         public List<ProtocolComponent> Protocols { get; set; } = new List<ProtocolComponent>();
 

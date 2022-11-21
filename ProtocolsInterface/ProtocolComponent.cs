@@ -15,5 +15,8 @@ namespace ProtocolsInterface
 
         [SavePirvateProperty]
         public RegisterValueType ValueType { get; private set; }
+
+        [SavePirvateProperty]
+        public string Group { get; private set; }
     }
 }

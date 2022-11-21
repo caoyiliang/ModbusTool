@@ -2,16 +2,15 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSoft.DataPairs.Newtonsoft" Version="6.0.1" />
-    <PackageReference Include="CSoft.LoggerNLog" Version="5.0.5" />
-    <PackageReference Include="CSoft.TopPortLib" Version="6.0.1" />
-    <PackageReference Include="NLog.Config" Version="4.7.13" />
-    <PackageReference Include="NPOI" Version="2.5.5" />
+    <PackageReference Include="CSoft.DataPairs.Newtonsoft" Version="7.0.0" />
+    <PackageReference Include="CSoft.LoggerNLog" Version="7.0.0" />
+    <PackageReference Include="CSoft.TopPortLib" Version="7.0.0" />
+    <PackageReference Include="NPOI" Version="2.6.0" />
   </ItemGroup>
 
   <ItemGroup>

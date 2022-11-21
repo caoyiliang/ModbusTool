@@ -61,10 +61,24 @@ namespace ModbusTool
 
             foreach (var item in protocolConfig.Protocols)
             {
+                FlowLayoutPanel flp;
+                if (!tabControl1.TabPages.ContainsKey(item.Group))
+                {
+                    var tabPage = new TabPage(item.Group);
+                    tabPage.Name = item.Group;
+                    flp = new FlowLayoutPanel();
+                    flp.Dock = DockStyle.Fill;
+                    tabPage.Controls.Add(flp);
+                    tabControl1.TabPages.Add(tabPage);
+                }
+                else
+                {
+                    flp = (FlowLayoutPanel)tabControl1.TabPages[item.Group].Controls[0];
+                }
                 var modbusComponent = new ModbusComponent(item.Name);
                 modbusComponent.ReadEvent += ModbusComponent_ReadEventAsync;
                 modbusComponent.WriteEvent += ModbusComponent_WriteEventAsync;
-                flowLayoutPanel.Controls.Add(modbusComponent);
+                flp.Controls.Add(modbusComponent);
             }
 
             var addr = ConfigurationManager.AppSettings["addr"];
@@ -113,30 +127,37 @@ namespace ModbusTool
         private async void btnOneR_Click(object sender, EventArgs e)
         {
             btnOneW.Enabled = false;
-            foreach (var item in flowLayoutPanel.Controls)
+            foreach (TabPage items in tabControl1.TabPages)
             {
-                if (item is ModbusComponent)
+                foreach (var item in items.Controls[0].Controls)
                 {
-                    var component = item as ModbusComponent;
-                    _ok = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
-                    component.Read();
-                    await _ok.Task;
+                    if (item is ModbusComponent)
+                    {
+                        var component = item as ModbusComponent;
+                        _ok = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+                        component.Read();
+                        await _ok.Task;
+                    }
                 }
             }
+
             btnOneW.Enabled = true;
         }
 
         private async void btnOneW_Click(object sender, EventArgs e)
         {
             btnOneR.Enabled = false;
-            foreach (var item in flowLayoutPanel.Controls)
+            foreach (TabPage items in tabControl1.TabPages)
             {
-                if (item is ModbusComponent)
+                foreach (var item in items.Controls[0].Controls)
                 {
-                    var component = item as ModbusComponent;
-                    _ok = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
-                    component.Write();
-                    await _ok.Task;
+                    if (item is ModbusComponent)
+                    {
+                        var component = item as ModbusComponent;
+                        _ok = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+                        component.Write();
+                        await _ok.Task;
+                    }
                 }
             }
             btnOneR.Enabled = true;
@@ -146,16 +167,19 @@ namespace ModbusTool
         {
             IWorkbook workbook = new XSSFWorkbook();
 
-            ISheet sheet = workbook.CreateSheet("DWBook");
-
-            for (int i = 0; i < flowLayoutPanel.Controls.Count; i++)
+            foreach (TabPage items in tabControl1.TabPages)
             {
-                var component = flowLayoutPanel.Controls[i] as ModbusComponent;
-                sheet.CreateRow(i).CreateCell(0).SetCellValue(component.Name);
-                sheet.GetRow(i).CreateCell(1).SetCellValue(component.Value);
+                ISheet sheet = workbook.CreateSheet(items.Text);
+
+                for (int i = 0; i < items.Controls[0].Controls.Count; i++)
+                {
+                    var component = items.Controls[0].Controls[i] as ModbusComponent;
+                    sheet.CreateRow(i).CreateCell(0).SetCellValue(component.Name);
+                    sheet.GetRow(i).CreateCell(1).SetCellValue(component.Value);
+                }
             }
             FileStream sw = File.Create("Protocol.xlsx");
-            workbook.Write(sw);
+            workbook.Write(sw, true);
             sw.Close();
             MessageBox.Show("秒导完成");
         }
@@ -167,15 +191,18 @@ namespace ModbusTool
                 var workbook = new XSSFWorkbook(fs);
                 if (workbook != null)
                 {
-                    var sheet = workbook.GetSheetAt(0);
-                    if (sheet != null)
+                    foreach (TabPage items in tabControl1.TabPages)
                     {
-                        var rowCount = sheet.LastRowNum;
-                        for (int i = 0; i < rowCount; i++)
+                        var sheet = workbook.GetSheet(items.Text);
+                        if (sheet != null)
                         {
-                            (flowLayoutPanel.Controls.Find($"{sheet.GetRow(i).GetCell(0).StringCellValue}", false)[0] as ModbusComponent).Value = sheet.GetRow(i).GetCell(1).StringCellValue;
+                            var rowCount = sheet.LastRowNum;
+                            for (int i = 0; i < rowCount; i++)
+                            {
+                                (items.Controls[0].Controls.Find($"{sheet.GetRow(i).GetCell(0).StringCellValue}", false)[0] as ModbusComponent).Value = sheet.GetRow(i).GetCell(1).StringCellValue;
+                            }
+                            MessageBox.Show("秒导完成");
                         }
-                        MessageBox.Show("秒导完成");
                     }
                 }
             }

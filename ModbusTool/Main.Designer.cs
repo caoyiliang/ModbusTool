@@ -31,9 +31,9 @@ namespace ModbusTool
         {
             this.btnOneR = new System.Windows.Forms.Button();
             this.btnOneW = new System.Windows.Forms.Button();
-            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOutput = new System.Windows.Forms.Button();
             this.btnInput = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SuspendLayout();
             // 
             // btnOneR
@@ -56,17 +56,6 @@ namespace ModbusTool
             this.btnOneW.UseVisualStyleBackColor = true;
             this.btnOneW.Click += new System.EventHandler(this.btnOneW_Click);
             // 
-            // flowLayoutPanel
-            // 
-            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(12, 41);
-            this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(935, 553);
-            this.flowLayoutPanel.TabIndex = 4;
-            // 
             // btnOutput
             // 
             this.btnOutput.Location = new System.Drawing.Point(334, 12);
@@ -87,14 +76,24 @@ namespace ModbusTool
             this.btnInput.UseVisualStyleBackColor = true;
             this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Location = new System.Drawing.Point(12, 49);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(935, 545);
+            this.tabControl1.TabIndex = 6;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 606);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnInput);
             this.Controls.Add(this.btnOutput);
-            this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.btnOneR);
             this.Controls.Add(this.btnOneW);
             this.Name = "Main";
@@ -108,8 +107,8 @@ namespace ModbusTool
 
         private System.Windows.Forms.Button btnOneR;
         private System.Windows.Forms.Button btnOneW;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Button btnOutput;
         private System.Windows.Forms.Button btnInput;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }

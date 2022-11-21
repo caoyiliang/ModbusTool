@@ -38,12 +38,13 @@ namespace ModbusTool
 
         internal void Read()
         {
-            btnR.PerformClick();
+            ReadEvent?.Invoke(this.Name, null);
         }
 
         internal void Write()
         {
-            btnW.PerformClick();
+            if (string.IsNullOrEmpty(tbValue.Text)) return;
+            WriteEvent?.Invoke(this.Name, new WriteEventArgs() { Value = tbValue.Text });
         }
     }
 
