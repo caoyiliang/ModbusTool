@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSoft.DataPairs.Newtonsoft" Version="7.0.0" />
-    <PackageReference Include="CSoft.TopPortLib" Version="7.0.0" />
+    <PackageReference Include="CSoft.DataPairs.Newtonsoft" Version="7.0.2" />
+    <PackageReference Include="CSoft.TopPortLib" Version="7.0.4" />
   </ItemGroup>
 
 </Project>
