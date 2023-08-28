@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="CSoft.DataPairs.Newtonsoft" Version="7.0.2" />
     <PackageReference Include="CSoft.LoggerNLog" Version="7.0.4" />
-    <PackageReference Include="CSoft.TopPortLib" Version="7.0.4" />
+    <PackageReference Include="CSoft.TopPortLib" Version="7.0.5" />
     <PackageReference Include="NPOI" Version="2.6.1" />
   </ItemGroup>
 
