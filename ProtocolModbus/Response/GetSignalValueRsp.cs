@@ -47,7 +47,7 @@ namespace ProtocolModbus
                         value = Utils.StringByteUtils.ToUInt32(rspBytes, index, isHighByteBefore).ToString();
                         break;
                     case RegisterValueType.ASCIIType:
-                        value = Encoding.ASCII.GetString(rspBytes, index, 6);
+                        value = Encoding.ASCII.GetString(rspBytes, index, 8);
                         break;
                     default:
                         throw new ArgumentException();
