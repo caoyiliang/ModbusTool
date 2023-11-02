@@ -34,17 +34,20 @@ namespace ProtocolModbus
             foreach (var channelInfo in channelInfos)
             {
                 var index = (channelInfo.RegisterAddress - startAddress) * 2 + 3;
-                decimal value;
+                string value;
                 switch (channelInfo.ValueType)
                 {
                     case RegisterValueType.FloatType:
-                        value = Convert.ToDecimal(Utils.StringByteUtils.ToSingle(rspBytes, index, isHighByteBefore));
+                        value = Utils.StringByteUtils.ToSingle(rspBytes, index, isHighByteBefore).ToString();
                         break;
                     case RegisterValueType.UInt16Type:
-                        value = Convert.ToDecimal(Utils.StringByteUtils.ToUInt16(rspBytes, index, isHighByteBefore));
+                        value = Utils.StringByteUtils.ToUInt16(rspBytes, index, isHighByteBefore).ToString();
                         break;
                     case RegisterValueType.UInt32Type:
-                        value = Convert.ToDecimal(Utils.StringByteUtils.ToUInt32(rspBytes, index, isHighByteBefore));
+                        value = Utils.StringByteUtils.ToUInt32(rspBytes, index, isHighByteBefore).ToString();
+                        break;
+                    case RegisterValueType.ASCIIType:
+                        value = Encoding.ASCII.GetString(rspBytes, index, 6);
                         break;
                     default:
                         throw new ArgumentException();

@@ -23,6 +23,13 @@
         "RegisterAddress": 259,
         "ValueType": 2,
         "Group": "2"
+      },
+      {
+        "$id": "6",
+        "Name": "TestAscii",
+        "RegisterAddress": 260,
+        "ValueType": 3,
+        "Group": "3"
       }
     ]
   }

@@ -11,6 +11,6 @@ namespace ProtocolsInterface
 
     public enum RegisterValueType
     {
-        FloatType, UInt16Type, UInt32Type
+        FloatType, UInt16Type, UInt32Type, ASCIIType
     }
 }

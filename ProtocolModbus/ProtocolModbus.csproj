@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSoft.TopPortLib" Version="7.0.5" />
+    <PackageReference Include="CSoft.TopPortLib" Version="7.0.6" />
   </ItemGroup>
 
   <ItemGroup>

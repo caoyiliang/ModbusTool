@@ -33,6 +33,9 @@ namespace ModbusTool.Protocol
                         break;
                     case RegisterValueType.UInt16Type:
                         break;
+                    case RegisterValueType.ASCIIType:
+                        END += 4;
+                        break;
                     default:
                         break;
                 }
@@ -55,7 +58,7 @@ namespace ModbusTool.Protocol
             }
         }
 
-        public async Task<decimal> GetValueAsync(string block)
+        public async Task<string> GetValueAsync(string block)
         {
             try
             {
@@ -70,7 +73,7 @@ namespace ModbusTool.Protocol
 
         public async Task SetValueAsync(Dictionary<string, string> block)
         {
-            List<WBlockInfo> ts = new List<WBlockInfo>();
+            var ts = new List<WBlockInfo>();
             foreach (var item in block)
             {
                 var temp = ADWProtocols[item.Key].ChannelInfos[0];
@@ -111,6 +114,11 @@ namespace ModbusTool.Protocol
                             {
                                 throw new Exception($"{item.Key}数据类型错误");
                             }
+                        }
+                        break;
+                    case RegisterValueType.ASCIIType:
+                        {
+                            data = Encoding.ASCII.GetBytes(item.Value);
                         }
                         break;
                     default:
